@@ -33,9 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final FormGroup fg = FormGroup({
     arrKey: FormArray<String>(
-      [
-        FormControl<String>(),
-      ],
+      [],
       validators: [
         Validators.minLength(1),
       ],
@@ -80,6 +78,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                 color: formArray.touched ? Colors.red : null,
                               ),
                         ),
+                        Text(
+                          formArray.dirty ? "DIRTY" : "NOT DIRTY",
+                          style:
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                    color: formArray.dirty ? Colors.red : null,
+                                  ),
+                        ),
                       ],
                     ),
                   ),
@@ -120,6 +125,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: const EdgeInsets.all(8),
                     child: FilledButton.tonal(
                       onPressed: () {
+                        if (!formArray.dirty) formArray.markAsDirty();
+                        if (!formArray.touched) formArray.markAsTouched();
                         formArray.add(FormControl<String>());
                       },
                       child: const Text("Add new form control"),
@@ -129,7 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: const EdgeInsets.all(8),
                     child: FilledButton(
                       onPressed: fg.markAllAsTouched,
-                      child: const Text("Mark all as touched"),
+                      child: const Text("Submit"),
                     ),
                   ),
                   Container(
