@@ -1,0 +1,20 @@
+name: form_array_touched_bug
+description: "Flutter project with minimal reproduction of FormArray bug."
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.3
+  flutter: ^3.24.3
+
+dependencies:
+  reactive_forms: ^17.0.1
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
