@@ -1,6 +1,6 @@
-# reactive_forms
+# FormArray touched bug
 
-A new Flutter project.
+Flutter project with minimal reproduction of FormArray bug.
 
 ## Getting Started
 
